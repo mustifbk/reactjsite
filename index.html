@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adınız Soyadınız - Kişisel Portfolyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Tailwind: bg-blue-50 */
+            color: #1a202c; /* Tailwind: text-gray-900 */
+        }
+        .header-bg {
+            background-color: #1e293b; /* Tailwind: bg-slate-900 */
+        }
+        .btn-primary {
+            background-color: #ef4444; /* Tailwind: bg-red-500 */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: #dc2626; /* Tailwind: bg-red-600 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .section-bg-dark {
+            background-color: #2d3748; /* Tailwind: bg-gray-800 */
+        }
+        .section-bg-light {
+            background-color: white;
+        }
+        .rounded-card {
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .skill-badge {
+            background-color: #e0e7ff; /* Tailwind: bg-indigo-100 */
+            color: #4f46e5; /* Tailwind: text-indigo-600 */
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px; /* rounded-full */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .skill-badge:hover {
+            background-color: #c7d2fe; /* Tailwind: bg-indigo-200 */
+            transform: translateY(-2px);
+        }
+        .project-card {
+            background-color: white;
+            border-radius: 1rem; /* Increased border-radius for softer look */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Ensure image corners are rounded */
+        }
+        .project-card:hover {
+            transform: translateY(-8px); /* More pronounced lift effect */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Even stronger shadow on hover */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="header-bg text-white py-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
+            <div class="text-2xl font-bold rounded-md">Adınız Soyadınız</div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#hakkimda" class="hover:text-yellow-300 transition duration-300">Hakkımda</a>
+                <a href="#beceriler" class="hover:text-yellow-300 transition duration-300">Beceriler</a>
+                <a href="#projeler" class="hover:text-yellow-300 transition duration-300">Projeler</a>
+                <a href="#iletisim" class="hover:text-yellow-300 transition duration-300">İletişim</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button-portfolio" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu-portfolio" class="hidden md:hidden bg-slate-800 py-2">
+            <nav class="flex flex-col items-center space-y-2">
+                <a href="#hakkimda" class="block py-2 px-4 text-white hover:bg-slate-700 w-full text-center rounded-md">Hakkımda</a>
+                <a href="#beceriler" class="block py-2 px-4 text-white hover:bg-slate-700 w-full text-center rounded-md">Beceriler</a>
+                <a href="#projeler" class="block py-2 px-4 text-white hover:bg-slate-700 w-full text-center rounded-md">Projeler</a>
+                <a href="#iletisim" class="block py-2 px-4 text-white hover:bg-slate-700 w-full text-center rounded-md">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-600 to-purple-700 text-white py-20 md:py-32 text-center overflow-hidden">
+        <!-- Background elements for visual appeal, similar to book landing page -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <svg class="w-full h-full" fill="none" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" fill-opacity="0.1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,117.3C840,107,960,117,1080,133.3C1200,149,1320,171,1380,181.3L1440,192L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <img src="https://placehold.co/180x180/60a5fa/ffffff?text=Profil+Foto" alt="Profil Fotoğrafı" class="w-44 h-44 rounded-full mx-auto mb-6 object-cover border-4 border-blue-300 shadow-xl transform hover:scale-105 transition-transform duration-300">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                Merhaba, Ben <span class="text-yellow-300">Adınız Soyadınız</span>
+            </h1>
+            <p class="text-xl sm:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+                Web Tasarım ve Geliştirme Uzmanı | UI/UX Meraklısı
+            </p>
+            <a href="#projeler" class="btn-primary inline-block">Projelerimi Keşfedin!</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="hakkimda" class="py-16 md:py-24 section-bg-light rounded-lg shadow-inner-lg mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-800">Hakkımda</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                    Lise ve üniversite eğitimimi web programcılığı ve web tasarım alanlarında tamamladım. HTML, CSS ve JavaScript temelinde güçlü bir bilgi birikimine sahibim. Özellikle modern framework'ler (Tailwind CSS gibi) ve duyarlı tasarım prensipleri üzerine yoğunlaşıyorum.
+                </p>
+                <p class="mb-4">
+                    Kullanıcı arayüzü (UI) ve kullanıcı deneyimi (UX) konularına büyük bir ilgi duyuyorum. Bir web sitesinin sadece işlevsel değil, aynı zamanda estetik ve kullanıcı dostu olması gerektiğine inanıyorum. Her projede, kullanıcıların sorunsuz ve keyifli bir deneyim yaşamasını sağlamayı hedefliyorum.
+                </p>
+                <p>
+                    Yeni teknolojileri öğrenmeye ve kendimi sürekli geliştirmeye açık biriyim. Yaratıcı ve yenilikçi çözümler üretmekten keyif alıyorum.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="beceriler" class="py-16 md:py-24 section-bg-dark text-white rounded-lg shadow-inner-lg mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8">Becerilerim</h2>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span class="skill-badge">HTML5</span>
+                <span class="skill-badge">CSS3</span>
+                <span class="skill-badge">JavaScript (ES6+)</span>
+                <span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">Duyarlı Tasarım</span>
+                <span class="skill-badge">UI/UX Temelleri</span>
+                <span class="skill-badge">Git & GitHub</span>
+                <span class="skill-badge">Web Performansı</span>
+                <span class="skill-badge">Figma (Temel)</span>
+                <span class="skill-badge">Problem Çözme</span>
+                <span class="skill-badge">Ekip Çalışması</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projeler" class="py-16 md:py-24 section-bg-light rounded-lg shadow-inner-lg mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-800">Projelerim</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+1" alt="Proje 1" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Kurumsal Web Sitesi Yenileme</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Modern ve duyarlı tasarıma sahip, Tailwind CSS ile geliştirilmiş kurumsal web sitesi.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+2" alt="Proje 2" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">E-ticaret Ürün Sayfası Tasarımı</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Kullanıcı dostu arayüzü ile ürün detaylarını ve yorumları içeren e-ticaret sayfası.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+3" alt="Proje 3" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Basit Blog Teması Geliştirme</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Okunabilirliği ve navigasyonu ön planda tutan, duyarlı blog teması.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+4" alt="Proje 4" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mobil Uygulama Arayüzü</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Modern ve sezgisel mobil uygulama arayüzü tasarımı ve prototiplemesi.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+                <!-- Project 5 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+5" alt="Proje 5" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">UX Araştırma Projesi</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Kullanıcı araştırması, persona oluşturma ve kullanıcı akışı analizi çalışması.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+                <!-- Project 6 -->
+                <div class="project-card p-6">
+                    <img src="https://placehold.co/600x350/60a5fa/ffffff?text=Proje+6" alt="Proje 6" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Animasyonlu Web Bileşenleri</h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        CSS ve JavaScript ile geliştirilmiş interaktif ve animasyonlu web bileşenleri koleksiyonu.
+                    </p>
+                    <a href="#" class="text-red-500 hover:text-red-600 font-medium transition duration-300">Detayları Gör &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-16 md:py-24 section-bg-dark text-white rounded-lg shadow-inner-lg mx-auto mt-8 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8">İletişim</h2>
+            <div class="max-w-xl mx-auto rounded-card p-8 bg-white text-gray-800">
+                <p class="mb-6 text-lg text-gray-700">İşbirliği veya sorularınız için benimle iletişime geçmekten çekinmeyin.</p>
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Adınız Soyadınız" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="E-posta Adresiniz" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+                    </div>
+                    <div>
+                        <textarea placeholder="Mesajınız" rows="5" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full text-xl">Gönder</button>
+                </form>
+                <div class="mt-8 text-gray-700">
+                    <p class="mb-2">E-posta: <a href="mailto:eposta@example.com" class="text-red-500 hover:underline">eposta@example.com</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/adinizsoyadiniz" target="_blank" class="text-red-500 hover:underline">linkedin.com/in/adinizsoyadiniz</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="section-bg-dark text-white py-8 mt-12 rounded-t-lg shadow-inner-lg">
+        <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2025 Adınız Soyadınız. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobil menü açma/kapama işlevselliği
+        const mobileMenuButtonPortfolio = document.getElementById('mobile-menu-button-portfolio');
+        const mobileMenuPortfolio = document.getElementById('mobile-menu-portfolio');
+
+        mobileMenuButtonPortfolio.addEventListener('click', () => {
+            mobileMenuPortfolio.classList.toggle('hidden');
+        });
+
+        // Menüdeki linklere tıklandığında menüyü kapat
+        mobileMenuPortfolio.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuPortfolio.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
